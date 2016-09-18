@@ -34,7 +34,7 @@ var miniInline = function(content, type, options){
         code        = content;
 
     if('css' === type){
-        code = uglifycss.processString(content, options);
+        code = uglifycss.processString(content, options).replace(/^.*<style/, '<style');
     }
     else if('js' === type){
         if(!isMinifyJs) return content;
